@@ -19,7 +19,7 @@
 
 Gets data of GitHub user by `githubCode`, `clientId` and `clientSecret`.
 
-Example of response:
+Example of result:
 
 ```json
 { 
@@ -71,7 +71,7 @@ Example of response:
 
 Gets data of Google user by `googleToken`.
 
-Example of response:
+Example of result:
 
 ```json
 { 
