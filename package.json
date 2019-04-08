@@ -1,6 +1,6 @@
 {
   "name": "@cuties/oauth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cutie extension for authentication and authorization in different platforms and systems (Google, GitHub, etc.)",
   "main": "index.js",
   "scripts": {
