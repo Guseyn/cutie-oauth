@@ -1,0 +1,39 @@
+language: node_js
+node_js:
+- lts/*
+install: |-
+  npm ci
+script: |-
+  npm run build || travis_terminate 1
+  log=$(git log $TRAVIS_COMMIT_RANGE --oneline)
+  echo $'**Change log:**<br/>'${log//$'\n'/<br/>}
+branches:
+  only:
+    - master
+before_deploy: |-
+  log=$(git log $TRAVIS_COMMIT_RANGE --oneline)
+  export TAG=$'v'$TRAVIS_COMMIT_MESSAGE
+  export BODY=$'**Change log:**<br/>'${log//$'\n'/<br/>}
+deploy:
+  - provider: releases
+    skip_cleanup: true
+    api_key:
+      secure: MugTIENxZ9sZrUS31bGiRcbdnR4ABEx2RqN2wFbna0awspKkBpRQ77mJd1VkQbX+2tVBH4vP3tLuQ7Y4QTplCdozCEtYjRO7ooZdGYBkkmUJV65YSf4mn8Q286aiv+0svgZRnFSGiFHpKNpqitMAzFRqA8h5JZmJu6Dmn3aNg35R24cqk1K9gHGnOPONXOSvkgwO8e8h4EECjboIuNyHAQQpy0QPvhRgFhQd4uYFispI1GIeKaoKYnBsz4E33z1/8029T+u9ibaqt5xWq44Qos8kA7u9p4xb5F3MU24ji3lUgtxXEqvYCihruTYvitzrmPa3h8s1sgJX/3ysGkU/F9YqcIIQ98P/OQR3JdFRfaa9kHAr78g7nWOHFSdo4joOMK8wLpo4G9NtNZXFsCGB0djzUZp/6OkNxCisuDx9cC4zENZZBulSKLMem5et0OhIXx31mLOplHgIb666BUWiIvotXM5PhDDU7Ie8z0vq8dTZDpKZp5vf0O+vDVSdZAIENUmfdfXQZCCu52JGmsfc2QI2LhFAJbgiZx4zUQ5sGQePKLLLHN6voItbytd42d+hvT9UW+wwdv0Fap+OHVHG9YF4Uwpr/pHzSP1bsEm8x4w1S/F0a315qWWDHU54gTwkkVbIDWoY3ULFIJ1ni/gokcRblIU9+AGbvR5ECprntOw=
+    file: README.md
+    name: Release $TRAVIS_COMMIT_MESSAGE
+    tag_name: $TAG
+    body: $BODY
+    on:
+      repo: Guseyn/cutie-oauth
+      branch:
+        - master
+      condition: $TRAVIS_COMMIT_MESSAGE =~ ^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$
+  - provider: npm
+    email: guseynism@gmail.com
+    api_key:
+      secure: f1iV7pKepjE/yRjfmo7eurH17GfwwzYN01cZ+626BMWQesr14pltGxlKKLeOWRUzwdnJlJZG2qfHiGz9Kg24hvnHwbQQfcy17Z9gjKyAqT/ycnTPppl0dVYJke4k3OdaIKLYohnChTOq/XmlsFzoVMy3BiDvCbERV6hAAFwJoKMzUR5HBem7uxP/AOe6ZrhfaBHTtnH6EvPOLz4vk0VbAzRVWNDhb2qHeeqkOLt+iNFO2f6NZpDLdLJwYsRKUCb4Y54UDFwgojwau8erLHas9BBqbQNc4FMhimoXPlTw9YmpKBc/RFL72bUKNa4gRfjk+qq7iJtH9veYUIN2jSuidc7gBVWF/2nmzifmHQvXUYNHZlaZmYTtdFukGe/FnodIO49Rnd782mp4mN47jRT5sckcIKh9xsUjb19IpQXRIDdSqeOmmdtDOcGaw999XsSj0U0pSNM/hEIM4NhYRUnbUW5IFy8VEPt+5z2JhFhzvVzUzdBB606i9T7NOvbAKjzBYiUKTWYN9kUC0rpFDiJUQbX290qrMu/L3LGVRPiH6sH2CzUgauFpUkdU63orgSTd38OUfRp9PLh1NAO4d1fnO868CUcSMUzOgfFrefuRra4tQ+sbfDX3AHHTO3Qg2rDMUP2OJqD/31bHSibmcJIyzfNASWZUcAbKmKRnuuWPB0U=
+    on:
+      repo: Guseyn/cutie-oauth
+      branch:
+        - master
+      condition: $TRAVIS_COMMIT_MESSAGE =~ ^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$

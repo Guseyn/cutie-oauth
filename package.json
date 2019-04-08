@@ -1,0 +1,44 @@
+{
+  "name": "@cuties/oauth",
+  "version": "1.0.0",
+  "description": "Cutie extension for authentication and authorization in different platforms and systems (Google, GitHub, etc.)",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guseyn/cutie-oauth.git"
+  },
+  "keywords": [
+    "oauth",
+    "cutie"
+  ],
+  "author": "guseyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Guseyn/cutie-oauth/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/Guseyn/cutie-oauth#readme",
+  "dependencies": {
+    "@cuties/assert": "^1.2.0",
+    "@cuties/cutie": "^1.7.0",
+    "@cuties/fs": "^1.2.1",
+    "@cuties/json": "^1.1.0",
+    "@cuties/object": "^1.1.4",
+    "@cuties/wall": "^1.1.0",
+    "json-stringify-pretty-compact": "^1.2.0",
+    "test-executor": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}
