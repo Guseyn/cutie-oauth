@@ -15,7 +15,7 @@
 
 ## Async objects
 
-**`GitHubUserData(payload, githubCode, clientId, clientSecret)`**
+**`GitHubUserData(githubCode, clientId, clientSecret)`**
 
 Gets data of GitHub user by `githubCode`, `clientId` and `clientSecret`.
 
