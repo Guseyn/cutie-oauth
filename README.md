@@ -1,7 +1,7 @@
 # cutie-oauth
 
 [![NPM Version](https://img.shields.io/npm/v/@cuties/oauth.svg)](https://npmjs.org/package/@cuties/oauth)
-[![Build Status](https://travis-ci.org/Guseyn/cutie-oauth.svg?branch=master)](https://travis-ci.org/Guseyn/cutie-oauth)
+[![Build Status](https://travis-ci.com/Guseyn/cutie-oauth.svg?branch=master)](https://travis-ci.com/Guseyn/cutie-oauth)
 
 [Cutie](https://github.com/Guseyn/cutie) extension for authentication and authorization in different platforms and systems (Google, GitHub, etc). It's based on the [Async Tree Pattern](https://github.com/Guseyn/async-tree-patern/blob/master/Async_Tree_Patern.pdf).
 
